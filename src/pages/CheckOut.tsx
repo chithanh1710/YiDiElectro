@@ -211,28 +211,59 @@ export default function CheckOut() {
           </h2>
           <div className="flex flex-wrap gap-4 justify-between mt-12 border-2 rounded-lg px-4 py-2 border-yellow-400">
             <div>
-              <h3 className="text-gray-400 font-light">Mode</h3>
-              <p>{data.mode}</p>
+              <h3 className="text-gray-400 font-light">
+                {lang === "English" ? "Mode" : "Chế độ"}
+              </h3>
+              <p>{lang === "English" ? data.mode : "Tự động"}</p>
             </div>
             <div>
-              <h3 className="text-gray-400 font-light">Energy</h3>
-              <p>{data.energy}</p>
+              <h3 className="text-gray-400 font-light">
+                {lang === "English" ? "Energy" : "Năng lượng"}
+              </h3>
+              <p>{lang === "English" ? data.energy : "Điện"}</p>
             </div>
             <div>
-              <h3 className="text-gray-400 font-light">Speed</h3>
+              <h3 className="text-gray-400 font-light">
+                {lang === "English" ? "Speed" : "Tốc độ"}
+              </h3>
               <p>{data.km}km</p>
             </div>
             <div>
-              <h3 className="text-gray-400 font-light">Product type</h3>
-              <p>{data.productType}</p>
+              <h3 className="text-gray-400 font-light">
+                {lang === "English" ? "Product type" : "Loại sản phẩm"}
+              </h3>
+              <p>
+                {lang === "English"
+                  ? data.productType
+                  : data.productType === "Luxury"
+                  ? "Sang trọng"
+                  : data.productType === "Sports"
+                  ? "Thể thao"
+                  : "Gia đình"}
+              </p>
             </div>
             <div>
-              <h3 className="text-gray-400 font-light">Year</h3>
+              <h3 className="text-gray-400 font-light">
+                {lang === "English" ? "Year" : "Năm"}
+              </h3>
               <p>{data.year}</p>
             </div>
             <div>
-              <h3 className="text-gray-400 font-light">Price</h3>
-              <p>${formatCurrency(data.price)}</p>
+              <h3 className="text-gray-400 font-light">
+                {lang === "English" ? "Price" : "Giá"}
+              </h3>
+              <p>
+                {isEnglish
+                  ? `$${formatCurrency(
+                      (
+                        Number(data.price) +
+                        Number(data.price) * 0.01
+                      ).toString()
+                    )}`
+                  : `${formatCurrencyVietnamese(
+                      (Number(price) + Number(price) * 0.01).toFixed(0)
+                    )}₫`}
+              </p>
             </div>
           </div>
 
