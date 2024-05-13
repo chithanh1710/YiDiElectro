@@ -32,7 +32,7 @@ export default function Background() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={vidCur} />
+          <source type="video/mp4" src={vidCur} />
         </video>
       )}
     </div>
