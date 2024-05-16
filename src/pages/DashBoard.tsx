@@ -6,6 +6,10 @@ export default function DashBoard() {
   if (!isAdminLogin) {
     return <Navigate to="/admin/login" replace />;
   } else {
-    return <h1>Dashboard</h1>;
+    return (
+      <div className="w-full h-screen bg-black">
+        <iframe height="100%" width="100%" src="../../pageAdmin.html" />
+      </div>
+    );
   }
 }
